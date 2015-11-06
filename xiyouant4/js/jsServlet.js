@@ -4,6 +4,7 @@
 		var arr=new Array()
 		arr[0] = ["01","02"];
 		arr[1] = ["11","12"];
+		arr[2] = ["21","22"];
 	
 	
 	//	方式二 ------注意 7,8,9行的代码，当把setInterval()打开的时候，将这三行代码也去掉注释
@@ -18,10 +19,15 @@
 				 		var dbSta = item.status;
 				 		var dbName = item.name;				 		
 				 		var dbDir = item.direction;
+				 		var dbError  = item.error;
 				 		
 				 		console.log(dbSta+ "和" + dbId + "和" + dbName + "和" + dbDir);
 				 		
-				 		changeStatus(dbSta, dbName, dbId, dbDir);
+				 		
+				 		console.log(dbError+"@@@@2");
+				 		
+				 		
+				 		changeStatus(dbSta, dbName, dbId, dbDir, dbError);
 				 	})
                      
             });
@@ -38,10 +44,15 @@
 				 		var dbSta = item.status;
 				 		var dbName = item.name;				 		
 				 		var dbDir = item.direction;
+				 		var dbError  = item.error;
 				 		
 				 		console.log(dbSta+ "和" + dbId + "和" + dbName + "和" + dbDir );
 				 		
-				 		changeStatus(dbSta, dbName, dbId, dbDir);
+				 		
+				 		console.log(dbError+"@@@@2");
+				 		
+				 		
+				 		changeStatus(dbSta, dbName, dbId, dbDir, dbError);
 				 	})
                      
             });
@@ -57,10 +68,15 @@
 				 		var dbSta = item.status;
 				 		var dbName = item.name;				 		
 				 		var dbDir = item.direction;
+				 		var dbError  = item.error;
 				 		
 				 		console.log(dbSta+ "和" + dbId + "和" + dbName + "和" + dbDir);
 				 		
-				 		changeStatus(dbSta, dbName, dbId, dbDir);
+				 		console.log(dbError+"@@@@2");
+				 		
+				 		
+				 		changeStatus(dbSta, dbName, dbId, dbDir, dbError);
+				 		
 				 	})
                      
             });
@@ -73,7 +89,7 @@
 				 		var dbId = json.id;
                         var dbSta = json.status;
 				 		var dbMessage = json.message;
-				 		var dbName = json.name;					 		
+				 		var dbName = json.name;					 				 		
 				 		
 				 		console.log(dbSta+ "和" + dbId + "和" + dbMessage);
 						 if(dbId=="000000")
@@ -203,79 +219,112 @@
 
 	 	$(".p3").text(arr[1][0]);
 	 	$(".p4").text(arr[1][1]);
+
+	 	$(".p5").text(arr[2][0]);
+	 	$(".p6").text(arr[2][1]);
 	 }
 
 	 function changePlace(str1, str2){
+	 	arr[2][0] = arr[1][0];
+	 	arr[2][1] = arr[1][1];
+
 	 	arr[1][0] = arr[0][0];
 	 	arr[1][1] = arr[0][1];
 
 	 	arr[0][0] = str1;
 	 	arr[0][1] = str2;
+
 	 }
 
-	 function changeStatus(sta, name, id, direction){
+	 function changeStatus(sta, name, id, direction, dbError){
 
 	 		if( nowClass){
 					nowClass=nowClass.split(" ")[0];
 			}
 
+
 	 	if(sta == 3){
 
-	 		 $('.tab_1 li').each(function(index) {				
+	 		
+	 		if( dbError != "ok"){
+	 			
+	 			$(".tab_1 li").not(":first").remove();
+	 		}else {
+	 			 $('.tab_1 li').each(function(index) {				
 
-			var strId = $(this).text().split(' ')[0];			
+					var strId = $(this).text().split(' ')[0];			
 
 
-			if( id != strId){
+					if( id != strId){
 
-				hasUser(id);
-			
-				if( nowClass){
-					nowClass=nowClass.split(" ")[0];
-				}
-				
-				deleteData(nowClass,id);
-				addData(id, name, sta, direction);
-			}
+						hasUser(id);
+					
+						if( nowClass){
+							nowClass=nowClass.split(" ")[0];
+						}
+						
+						deleteData(nowClass,id);
+						addData(id, name, sta, direction);
+					}
 
-		});
+				});
+	 		}
+
+	 		
 	 	}else if( sta == 6){
-	 		 $('.tab_2 li').each(function(index) {				
+	 			 		
+	 		if( dbError == 0){
+	 			
+	 			$(".tab_2 li").not(":first").remove();
+	 		
+	 		}else {
+	 			 $('.tab_2 li').each(function(index) {				
 
-			var strId = $(this).text().split(' ')[0];			
-
-			if( id != strId){
-
-				hasUser(id);
-				
-				if( nowClass){
-					nowClass=nowClass.split(" ")[0];
-				}
-				
-				deleteData(nowClass,id);
-				addData(id, name, sta, direction);
-			}
-
-		});
+					var strId = $(this).text().split(' ')[0];			
 
 
-	 	}else if( sta == 9){
-	 		 $('.tab_3 li').each(function(index) {				
+					if( id != strId){
 
-			var strId = $(this).text().split(' ')[0];			
+						hasUser(id);
+					
+						if( nowClass){
+							nowClass=nowClass.split(" ")[0];
+						}
+						
+						deleteData(nowClass,id);
+						addData(id, name, sta, direction);
+					}
 
-			if( id != strId){
+				});
+	 		}
 
-				hasUser(id);
-				
-				if( nowClass){
-					nowClass=nowClass.split(" ")[0];					
-				}
-				
-				deleteData(nowClass,id);
-				addData(id, name, sta, direction);
-			}
-		});
+	 	}else if( sta == 9){	 		
+	 		
+	 		if( dbError == 0){
+
+	 			$(".tab_3 li").not(":first").remove();
+
+	 			
+	 		}else {
+	 			 $('.tab_3 li').each(function(index) {				
+
+					var strId = $(this).text().split(' ')[0];			
+
+
+					if( id != strId){
+
+						hasUser(id);
+					
+						if( nowClass){
+							nowClass=nowClass.split(" ")[0];
+						}
+						
+						deleteData(nowClass,id);
+						addData(id, name, sta, direction);
+					}
+
+				});
+	 		}
 
 	 	}
 	 }

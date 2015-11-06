@@ -1,17 +1,17 @@
 #tabBox{
-	width:750px;
-	height: 400px;
+	width:660px;
+	height: 440px;
 	 border-radius: 5px;
 	box-shadow: 0 0 10px #218dc9;
 	position: absolute;
-	top:80px;
-	left:350px;
+	top:0px;
+	left:340px;
 	z-index: 10;
 }
 
 #tabBox div{
-	width:370px;
-	height:330px;
+	width:330px;
+	height:370px;
 	margin:0;
 	padding:0;
 	font-size: 18px;
@@ -24,14 +24,14 @@
 }
 
 .tab_1{
-	width:370px;
-	height:330px;
+	width:330px;
+	height:370px;
 	float: left;
 }
 
 .tab_2{
-	width:370px;
-	height:330px;
+	width:330px;
+	height:370px;
 	float: right;
 }
 

@@ -50,12 +50,12 @@ if($interviews)
         }
         $return_array[] = array("id"=>$interview->player->student_id,"name"=>$interview->player->name
         ,"status"=>$interview->player->get_status(),"direction"=>$interview->player->direction,
-            "judge"=>$judge,"error"=>"ok");
+            "judge"=>$judge);
     }
 
 }else{
 
-    $return_array[0] = array("id"=>"**","name"=>"**","status"=>$status1,"direction"=>"**","judge"=>"**","error"=>"no_one");
+    $return_array = array("id"=>"**","name"=>"**","status"=>"**","direction"=>"**","judge"=>"**","error"=>"no_one");
 }
 
 $callback = isset($_GET['callback'])?trim($_GET['callback']):'';

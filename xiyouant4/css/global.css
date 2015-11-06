@@ -13,8 +13,8 @@ body, html {
 	z-index:99;
 }
 .main {
-	width:1120px;
-	height:80%;
+	width:1024px;
+	height:85%;
 	box-shadow: 0 0 10px #218dc9;
 	/* background:#fff; */
 	margin:0 auto;

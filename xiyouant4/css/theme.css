@@ -1,6 +1,6 @@
 /*天空*/
 .sky { 
-	position:absolute; left:0; top:0; width:100%; height:90%;
+	position:absolute; left:0; top:0; width:100%; height:95%;
 	background:-webkit-linear-gradient(top,#7da2e8,#c3deee 30%,#f7fcff);
 	background:-moz-linear-gradient(top,#7da2e8,#c3deee 30%,#f7fcff);
 	background:-ms-linear-gradient(top,#7da2e8,#c3deee 30%,#f7fcff);
@@ -9,7 +9,7 @@
 }
 /*海洋*/
 .sea {
-	position:absolute; left:0; bottom:0; width:100%; height:20%; z-index:4;
+	position:absolute; left:0; bottom:0; width:100%; height:15%; z-index:4;
 	background:-webkit-linear-gradient(top,#e7eef8,#89a0c4 35%,#455d83 70%,#23375e);
 	background:-moz-linear-gradient(top,#e7eef8,#89a0c4 35%,#455d83 70%,#23375e);
 	background:-ms-linear-gradient(top,#e7eef8,#89a0c4 35%,#455d83 70%,#23375e);
