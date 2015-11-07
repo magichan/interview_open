@@ -117,7 +117,10 @@ class Mysql
 
     function safe_string($string)
     {
-        return mysqli_real_escape_string($string, $this->sql_con);
+
+        $ret =  mysqli_real_escape_string($this->sql_con,$string);
+
+        return $ret;
 
     }
 

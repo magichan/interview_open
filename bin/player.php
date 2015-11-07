@@ -46,8 +46,9 @@ class player
        {
            $this->sql = new Mysql();
 
-           $id = mysqli_real_escape_string($array['id'],$this->sql);
-           $ret = $this->sql->getLine("SELECT * FROM player WHERE id=　$id");
+           $id = $this->sql->safe_string($array['id']);
+
+           $ret = $this->sql->getLine("SELECT * FROM player WHERE id='$id'");
        }else if(array_key_exists("student_id",$array)){
            $this->sql = new Mysql();
            $student_id =$this->sql->safe_string($array['student_id']);
