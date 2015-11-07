@@ -46,11 +46,11 @@ class player
        {
            $this->sql = new Mysql();
 
-           $id = $array['id'];
-           $ret = $this->sql->getLine("SELECT * FROM player WHERE id=$id");
+           $id = mysqli_real_escape_string($array['id'],$this->sql);
+           $ret = $this->sql->getLine("SELECT * FROM player WHERE id=　$id");
        }else if(array_key_exists("student_id",$array)){
            $this->sql = new Mysql();
-           $student_id = $array['student_id'];
+           $student_id =$this->sql->safe_string($array['student_id']);
            $ret = $this->sql->getLine("SELECT * FROM player WHERE student_id='$student_id'");
        }else{
            $ret = false;

@@ -10,9 +10,18 @@ include_once("../bin/player.php");
 include_once("../bin/interview.php");
 include_once("../bin/Mysql.php");
 include_once("../bin/notice.php");
-
+$name = trim($_GET['name']);
 //$_GET['id'] = '04131097';
 $player = new player(array('student_id'=>$_GET['id']));
+if($name == $player->name )
+{
+    $return  =  array("id"=>"000000","test"=>"学号和用户名不匹配");
+    $demo_json = json_encode($return);
+    $callback = isset($_GET['callback'])?trim($_GET['callback']):'';
+    echo $callback.'('.$demo_json.')';
+    exit;
+
+}
 
 
 
