@@ -50,7 +50,7 @@ if($interviews)
         }
         $return_array[] = array("id"=>$interview->player->student_id,"name"=>$interview->player->name
         ,"status"=>$interview->player->get_status(),"direction"=>$interview->player->direction,
-            "judge"=>$judge);
+            "judge"=>$judge,"error"=>"ok");
     }
 
 }else{
@@ -58,7 +58,7 @@ if($interviews)
     $return_array = array("id"=>"**","name"=>"**","status"=>"**","direction"=>"**","judge"=>"**","error"=>"no_one");
 }
 
-$callback = isset($_GET['callback'])?trim($_GET['callback']):'';
+//$callback = isset($_GET['callback'])?trim($_GET['callback']):'';
 $demo_json = json_encode($return_array);
 echo $demo_json;
 exit;
