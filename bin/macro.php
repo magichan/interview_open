@@ -18,16 +18,13 @@
  $row['direction_knowledge']
  */
 //
-//define("HOST","localhost");
-//define("USER","root");
-//define("PASSWORD","222222");
 ////
-define("HOST","114.215.117.181");
-define("USER","demo");
-define("PASSWORD","123456");
+define("HOST","**");
+define("USER","**");
+define("PASSWORD","***");
 // //远程测试数据库
 
-define("DATABASE_NAME","interview");
+define("DATABASE_NAME","***");
 
 define("STATUS_SIGN_UP",1); //注册
 define("STATUS_SIGN_IN",2); // 登陆
